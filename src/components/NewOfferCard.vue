@@ -1,5 +1,19 @@
 <template>
     <section>
+        <h2>Minhas ofertas</h2>
+        <div>
+            <div class="container-cards">
+                <h3 v-if="listFavoriteOffers.length == 0" style="text-align: center;width: 100%;">Você ainda não possui ofertas na lista de favoritos</h3>
+                <div v-for="(itemOffer, index) in listFavoriteOffers" :key="index" class="card card-item">
+                    <img :src="itemOffer.imageOffer" style="width: 100%">
+                    <h4>{{ itemOffer.titleOffer }}</h4>
+                    <div>
+                        <span style="float: left">R$ {{ itemOffer.priceOffer }}</span>
+                        <button style="float: right">Remover da lista de favoritos</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <h2>Lista de novas ofertas</h2>
         <div class="container-cards">
             <div v-for="(item, idx) in list" :key="idx" class="card card-item">
@@ -12,19 +26,6 @@
                 <div>
                     <span style="float: left">R$ {{ item.value }}</span>
                     <button style="float: right;" @click.once="buyOffer(item)">Favoritar oferta</button>
-                </div>
-            </div>
-        </div>
-        <h2>Minhas ofertas</h2>
-        <div>
-            <div class="container-cards">
-                <div v-for="(itemOffer, index) in listFavoriteOffers" :key="index" class="card card-item">
-                    <img :src="itemOffer.imageOffer" style="width: 100%">
-                    <h4>{{ itemOffer.titleOffer }}</h4>
-                    <div>
-                        <span style="float: left">R$ {{ itemOffer.priceOffer }}</span>
-                        <button style="float: right">Remover da lista de favoritos</button>
-                    </div>
                 </div>
             </div>
         </div>

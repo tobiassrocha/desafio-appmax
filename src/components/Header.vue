@@ -1,8 +1,8 @@
 <template>
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/create-form-page">Criar nova oferta</router-link>
-    </div>
+    <header id="nav">
+      <a href="/">Home</a>
+      <a href="/create-form-page">Criar nova oferta</a>
+    </header>
 </template>
 
 <style>

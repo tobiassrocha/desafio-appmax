@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header renders the component 1`] = `<header id="nav"><a href="/">Home</a> <a href="/create-form-page">Criar nova oferta</a></header>`;

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateOffersForm renders the component 1`] = `
+<form>
+  <h2>Criar nova oferta</h2>
+  <div><label>título:</label> <input type="text"></div>
+  <div><label>descrição:</label> <textarea></textarea></div>
+  <div><label>valor/custo mensal:</label> <input type="text"></div>
+  <div><label>desconto:</label> <input type="text"></div>
+  <div><label>imagem:</label> <input type="file"></div> <button>Criar Oferta</button>
+</form>
+`;

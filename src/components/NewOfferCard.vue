@@ -30,7 +30,7 @@
                         <span class="offer__card__value">R$ {{ item.value }}</span>
                         <span v-if="item.discount > 0" class="offer__card__discount">Desconto de R$ {{ item.discount }}</span>
                     </p>
-                    <button @click="buyOffer(item)" class="offer__card__button">Favoritar oferta</button>
+                    <button @click.once="buyOffer(item)" class="offer__card__button">Favoritar oferta</button>
                 </div>
             </div>
         </div>
@@ -74,6 +74,7 @@ export default {
             this.listFavoriteOffers.push(this.favoriteOffers);
             localStorage.setItem('favoriteOffers', JSON.stringify(this.listFavoriteOffers))
             this.favoriteOffers = {id: 0, titleOffer: '', descriptionOffer: '', priceOffer: null,imageOffer: '',}
+            alert('Oferta favoritada! Verifique sua lista de favoritos.')
         }
     },
     mounted() {

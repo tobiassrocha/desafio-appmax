@@ -72,13 +72,12 @@ export default {
         &__container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
             margin-bottom: 30px;
         }
 
         &__card {
             box-sizing: border-box;
-            margin: 25px 0 35px 0;
+            margin: 25px 10px 35px;
             width: 30%;
 
             &__image {

@@ -66,7 +66,7 @@ export default {
 
         &__subtitle {
             font-size: 16px;
-            margin: 0 0 25px 0;
+            margin: 0;
         }
 
         &__container {
@@ -77,7 +77,8 @@ export default {
         }
 
         &__card {
-            margin-bottom: 35px;
+            box-sizing: border-box;
+            margin: 25px 0 35px 0;
             width: 30%;
 
             &__image {
@@ -95,7 +96,7 @@ export default {
             &__description {
                 font-size: 16px;
                 margin: 0 0 20px 0;
-                text-align: left;
+                text-align: center;
             }
 
             &__price {

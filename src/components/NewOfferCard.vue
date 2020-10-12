@@ -1,31 +1,36 @@
 <template>
-    <section>
-        <h2>Minhas ofertas</h2>
-        <div>
-            <div class="container-cards">
-                <h3 v-if="listFavoriteOffers.length == 0" style="text-align: center;width: 100%;">Você ainda não possui ofertas na lista de favoritos</h3>
-                <div v-for="(itemOffer, index) in listFavoriteOffers" :key="index" class="card card-item">
-                    <img :src="itemOffer.imageOffer" style="width: 100%">
-                    <h4>{{ itemOffer.titleOffer }}</h4>
-                    <div>
-                        <span style="float: left">R$ {{ itemOffer.priceOffer }}</span>
-                        <button style="float: right">Remover da lista de favoritos</button>
-                    </div>
+    <section class="offer favorite">
+        <h2 class="offer__title">{{ messageTitleOffer }}</h2>
+        <div class="offer__container">
+            <h3 v-if="listFavoriteOffers.length == 0" class="offer__no__data">{{ messageNoOffers }}</h3>
+            <div v-for="(itemOffer, index) in listFavoriteOffers" :key="index" class="offer__card">
+                <img :src="itemOffer.imageOffer" class="offer__card__image">
+                <h4>{{ itemOffer.titleOffer }}</h4>
+                <div class="offer__main__info">
+                    <p class="offer__card__price">
+                        <span class="offer__card__value">R$ {{ itemOffer.priceOffer }}</span>
+                    </p>
+                    <button class="offer__card__button offer__card__button--favorite">Remover da lista</button>
                 </div>
             </div>
         </div>
-        <h2>Lista de novas ofertas</h2>
-        <div class="container-cards">
-            <div v-for="(item, idx) in list" :key="idx" class="card card-item">
+        <h2 class="offer__title">{{ messageTitleNewOffers }}</h2>
+        <p class="offer__subtitle">{{ messageSubTitleNewOffers }}</p>
+        <div class="offer__container">
+            <h3 v-if="list.length == 0" class="offer__no__data">{{ messageNoNewOffers }}</h3>
+            <div v-for="(item, idx) in list" :key="idx" class="offer__card">
                 <figure>
-                    <img v-if="item.image" :src="item.image">
-                    <img v-else class="no-image">
+                    <img v-if="item.image" :src="item.image" class="offer__card__image">
+                    <img v-else class="offer__card__image-no-image">
                 </figure>
-                <h4>{{ item.title }}</h4>
-                <p style="text-align: left">{{ item.description }}</p>
-                <div>
-                    <span style="float: left">R$ {{ item.value }}</span>
-                    <button style="float: right;" @click.once="buyOffer(item)">Favoritar oferta</button>
+                <h4 class="offer__card__title">{{ item.title }}</h4>
+                <p class="offer__card__description">{{ item.description }}</p>
+                <div class="offer__main__info">
+                    <p class="offer__card__price">
+                        <span class="offer__card__value">R$ {{ item.value }}</span>
+                        <span v-if="item.discount > 0" class="offer__card__discount">Desconto de R$ {{ item.discount }}</span>
+                    </p>
+                    <button @click="buyOffer(item)" class="offer__card__button">Favoritar oferta</button>
                 </div>
             </div>
         </div>
@@ -36,22 +41,27 @@
 export default {
     data() {
         return {
-          list: [],
-          offers: {
-              id: 0,
-              title: '',
-              description: '',
-              value: null,
-              discount: null,
-              image: ''
-          },
-          favoriteOffers: {
-              id: 0,
-              titleOffer: '',
-              priceOffer: null,
-              imageOffer: ''
-          },
-          listFavoriteOffers: []
+            messageTitleOffer: 'Minha lista de ofertas',
+            messageNoOffers: 'Você ainda não possui ofertas na lista de favoritos.',
+            messageNoNewOffers: 'Ainda não existem novas ofertas cadastradas.',
+            messageTitleNewOffers: 'Novas ofertas',
+            messageSubTitleNewOffers: 'Parques, Passeios, Museus, Atrações e muito mais!',
+            list: [],
+            offers: {
+                id: 0,
+                title: '',
+                description: '',
+                value: null,
+                discount: null,
+                image: ''
+            },
+            favoriteOffers: {
+                id: 0,
+                titleOffer: '',
+                priceOffer: null,
+                imageOffer: ''
+            },
+            listFavoriteOffers: []
         }
     },
     methods: {
@@ -76,6 +86,23 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
+.favorite {
+    background-color: #fff;
+
+    .offer__card {
+        border: 1px solid;
+        padding: 15px 25px;
+    }
     
+    .offer__card__button {
+        padding: 10px;
+        width: 90px;
+    }
+
+    .offer__no__data {
+        text-align: center;
+        width: 100%;
+    }
+}
 </style>

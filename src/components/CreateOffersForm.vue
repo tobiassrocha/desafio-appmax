@@ -53,6 +53,7 @@ export default {
             }
             localStorage.setItem('offers', JSON.stringify(this.list))
             this.offers = {id: 0, title: '', description: '', value: null, discount: null, image: ''}
+            alert('Oferta criada com sucesso!');
         },
         onFileChange(e) {
             var files = e.target.files || e.dataTransfer.files;

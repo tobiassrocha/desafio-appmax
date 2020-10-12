@@ -21,7 +21,6 @@
 <style lang="less" escoped>
 .header {
   height: 95px;
-  margin-bottom: 30px;
   
   &__container {
     background-color: #fff;

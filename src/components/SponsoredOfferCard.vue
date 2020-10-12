@@ -1,14 +1,18 @@
 <template>
-    <section>
-        <h2>{{ messageTitle }}</h2>
-        <div class="container-cards">
-            <div v-for="(info, idx) in infos" :key="idx" class="card">
-                <img :src="info.image" style="width: 100%">
-                <h4>{{ info.title }}</h4>
-                <p style="text-align: left">{{ info.description }}</p>
-                <div>
-                    <span style="float: left">R$ {{ info.value }}</span>
-                    <button style="float: right">Comprar</button>
+    <section class="offer">
+        <h2 class="offer__title">{{ messageTitle }}</h2>
+        <p class="offer__subtitle">{{ messageSubTitle }}</p>
+        <div class="offer__container">
+            <div v-for="(info, idx) in infos" :key="idx" class="offer__card">
+                <img :src="info.image" class="offer__card__image">
+                <h4 class="offer__card__title">{{ info.title }}</h4>
+                <p class="offer__card__description">{{ info.description }}</p>
+                <div class="offer__main__info">
+                    <p class="offer__card__price">
+                        <span class="offer__card__value">R$ {{ info.value }}</span>
+                        <span v-if="info.discount > 0" class="offer__card__discount">Desconto de R$ {{ info.discount }}</span>
+                    </p>
+                    <button class="offer__card__button">Favoritar oferta</button>
                 </div>
             </div>
         </div>
@@ -22,6 +26,7 @@ export default {
     data() {
         return {
           messageTitle: 'Ofertas Patrocinadas',
+          messageSubTitle: 'Confira a seleção de ofertas patrocinadas que o para o final de semana!',
           infos: [],
           offers: {
               id: 0,
@@ -46,62 +51,82 @@ export default {
 }
 </script>
 
-<style>
-    .container-cards {
-        display: flex;
-        flex-wrap: wrap;
-        border-bottom: 1px solid;
-        margin-bottom: 30px;
-    }
-    .card {
-        margin-bottom: 20px;
-        margin-right: 15px;
-        width: 30%;
-    }
-    .card:nth-child(3) {
-        margin-right: 0;
-    }
-    .card-item {
-        border: 1px solid;
-        padding: 15px;
+<style lang="less">
+    .offer {
+        background-color: #f2f2f2;
         box-sizing: border-box;
-    }
-    form {
-        display: flex;
-        justify-content: space-between;
+        padding: 30px 40px 0;
         width: 100%;
-        margin: 0 auto;
-        flex-wrap: wrap;
-        border-bottom: 1px solid;
-        margin-bottom: 30px;
-        padding: 0 25% 30px;
-        box-sizing: border-box;
-    }
-    form div {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-        text-align: left;
-        margin-bottom: 15px;
-    }
-    .no-image {
-        background-image: url('../assets/unnamed.png');
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        width: 100%;
-        height: 160px;
-    }
-    figure {
-        margin: 0;
-        height: 200px;
-        display: flex;
-        align-items: center;
-    }
-    figure img {
-        max-width: 100%;
-        max-height: 100%;
-        margin: 0 auto;
+
+        &__title {
+            font-size: 26px;
+            color: #000;
+            margin: 0;
+        }
+
+        &__subtitle {
+            font-size: 16px;
+            margin: 0 0 25px 0;
+        }
+
+        &__container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        &__card {
+            margin-bottom: 35px;
+            width: 30%;
+
+            &__image {
+                max-width: 100%;
+                max-height: 100%;
+                margin: 0 auto;
+            }
+
+            &__title {
+                font-size: 20px;
+                margin: 5px 0 0 0;
+                text-transform: uppercase;
+            }
+
+            &__description {
+                font-size: 16px;
+                margin: 0 0 20px 0;
+                text-align: left;
+            }
+
+            &__price {
+                display: flex;
+                flex-direction: column;
+                align-items: baseline;
+                margin: 0;
+            }
+
+            &__discount {
+                font-size: 14px;
+            }
+
+            &__button {
+                background-color: #fcbf10;
+                border: 1px solid;
+                cursor: pointer;
+                font-size: 12px;
+                font-weight: bold;
+                outline: none;
+                padding: 15px 10px;
+                text-transform: uppercase;
+            }
+        }
+
+        &__main__info {
+            color: #000;
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+            font-weight: bold;
+        }
     }
 </style>

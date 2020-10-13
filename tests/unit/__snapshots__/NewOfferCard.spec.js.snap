@@ -1,14 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NewOfferCard renders the component 1`] = `
-<section>
-  <h2>Minhas ofertas</h2>
-  <div>
-    <div class="container-cards">
-      <h3 style="text-align: center; width: 100%;">Você ainda não possui ofertas na lista de favoritos</h3>
-    </div>
+<section class="offer favorite">
+  <h2 class="offer__title">Minha lista de ofertas</h2>
+  <div class="offer__container">
+    <h3 class="offer__no__data">Você ainda não possui ofertas na lista de favoritos.</h3>
   </div>
-  <h2>Lista de novas ofertas</h2>
-  <div class="container-cards"></div>
+  <h2 class="offer__title">Novas ofertas</h2>
+  <p class="offer__subtitle">Parques, Passeios, Museus, Atrações e muito mais!</p>
+  <div class="offer__container">
+    <h3 class="offer__no__data">Ainda não existem novas ofertas cadastradas.</h3>
+  </div>
 </section>
 `;

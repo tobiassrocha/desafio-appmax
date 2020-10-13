@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Footer renders the component 1`] = `
-<footer>
-  <p>Desenvolvido com o <span>♥</span> por Tobias Rocha da Rosa</p>
+<footer class="footer">
+  <p class="footer__text">Desenvolvido com o <span class="footer__heart">♥</span> por Tobias Rocha da Rosa</p>
+  <nav class="footer__navbar">
+    <ul class="footer__navbar__list">
+      <li class="footer__navbar__item"><a href="/" class="footer__navbar__link">Home</a></li>
+      <li class="footer__navbar__item"><a href="/create-form-page" class="footer__navbar__link">Criar nova oferta</a></li>
+    </ul>
+  </nav>
 </footer>
 `;

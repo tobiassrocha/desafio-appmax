@@ -10,7 +10,7 @@
                     <p class="offer__card__price">
                         <span class="offer__card__value">R$ {{ itemOffer.priceOffer }}</span>
                     </p>
-                    <button class="offer__card__button offer__card__button--favorite">Remover da lista</button>
+                    <button @click="removeOffer(itemOffer)" class="offer__card__button offer__card__button--favorite">Remover da lista</button>
                 </div>
             </div>
         </div>
@@ -75,7 +75,13 @@ export default {
             localStorage.setItem('favoriteOffers', JSON.stringify(this.listFavoriteOffers))
             this.favoriteOffers = {id: 0, titleOffer: '', descriptionOffer: '', priceOffer: null,imageOffer: '',}
             alert('Oferta favoritada! Verifique sua lista de favoritos.')
-        }
+        },
+        removeOffer(itemOffer) {
+            const idx = this.listFavoriteOffers.indexOf(itemOffer)
+            this.listFavoriteOffers.splice(idx, 1)
+            localStorage.setItem('favoriteOffers', JSON.stringify(this.listFavoriteOffers))
+            alert('Oferta removida da lista com sucesso!')
+        }, 
     },
     mounted() {
         const offer = JSON.parse(localStorage.getItem('offers'));

@@ -1,3 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header renders the component 1`] = `<header id="nav"><a href="/">Home</a> <a href="/create-form-page">Criar nova oferta</a></header>`;
+exports[`Header renders the component 1`] = `
+<header class="header">
+  <div class="header__container"><a href="/">
+      <h1 class="header__logo"></h1>
+    </a>
+    <nav class="navbar">
+      <ul class="navbar__list">
+        <li class="navbar__item"><a href="/" class="navbar__link">Home</a></li>
+        <li class="navbar__item"><a href="/create-form-page" class="navbar__link">Criar nova oferta</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+`;

@@ -87,7 +87,7 @@
     &__container {
       justify-content: center;
     }
-    
+
     &__logo {
       width: 230px;
       height: 55px;

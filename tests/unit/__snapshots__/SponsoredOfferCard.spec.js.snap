@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`SponsoredOfferCard renders the component 1`] = `
-<section class="offer">
-  <h2 class="offer__title">Ofertas Patrocinadas</h2>
-  <p class="offer__subtitle">Confira a seleção de ofertas patrocinadas que o para o final de semana!</p>
-  <div class="offer__container"></div>
-</section>
-`;

@@ -1,5 +1,10 @@
 # desafio-appmax
 
+## Technologies used
+```
+VueJS, Less CSS and Jest for Tests Unit
+```
+
 ## Project setup
 ```
 npm install

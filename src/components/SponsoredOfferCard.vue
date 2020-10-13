@@ -87,7 +87,7 @@ export default {
             }
 
             &__title {
-                font-size: 20px;
+                font-size: 18px;
                 margin: 5px 0 0 0;
                 text-transform: uppercase;
             }
@@ -127,6 +127,30 @@ export default {
             justify-content: space-between;
             font-size: 20px;
             font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            
+            padding: 25px;
+            
+            &__card {
+                border: 1px solid;
+                margin: 20px 0 0 0;
+                padding: 15px;
+                width: 100%;
+
+                &__button {
+                    width: 145px;
+                }
+            }
+
+            &__title {
+                font-size: 22px;
+            }
+
+            &__subtitle {
+                font-size: 14px;
+            }
         }
     }
 </style>

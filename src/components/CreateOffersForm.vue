@@ -139,5 +139,20 @@ export default {
             text-transform: uppercase;
         }
     }
+
+    @media (max-width: 768px) {
+
+        margin: 0;
+        padding: 25px;
+        
+        &__title {
+            font-size: 22px;
+        }
+
+        &__form {
+            margin-bottom: 45px;
+            width: 100%;
+        }
+    }
 }
 </style>

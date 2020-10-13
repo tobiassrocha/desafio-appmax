@@ -75,5 +75,23 @@
       }
     }
   }
+
+  @media (max-width: 768px) {
+
+    height: 75px;
+
+    .navbar {
+      display: none;
+    }
+
+    &__container {
+      justify-content: center;
+    }
+    
+    &__logo {
+      width: 230px;
+      height: 55px;
+    }
+  }
 }
 </style>
